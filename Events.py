@@ -1,3 +1,6 @@
+import csv
+from mailbox import mbox
+
 from PyQt6 import QtWidgets, QtGui
 from datetime import datetime
 from Connection import *
@@ -179,4 +182,43 @@ class Events:
 
         except Exception as error:
             print("There was an error while restoring the backup: ", error)
+
+
+    @staticmethod
+    def exportCsvCustomers():
+        try:
+            data = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+            fileName = str(data) + "_customers.csv"
+            filePath, filter = Globals.dlgOpen.getSaveFileName(None, "Export Backup File", fileName, "CSV Files (*.csv)")
+            var = False
+
+            if filePath:
+                records = Connection.getCustomers(var)
+                with open(filePath, "w", newline= "", encoding="utf-8") as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow(["DNIE_NIE", "AddData", "Surname", "Name", "eMail", "Mobile", "Address", "Province", "City", "Invoice Type", "Active"])
+
+                    for record in records:
+                        writer.writerow(record)
+
+#                shutil.move(filter, filePath)
+
+                mbox = QtWidgets.QMessageBox()
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+#               mbox.setWindowIcon(QtGui.QIcon("URL imagen"))
+                mbox.setWindowTitle("Export Customers")
+                mbox.setText("Customer data successfully exported")
+                mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+                mbox.exec()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+#                mbox.setWindowIcon(QtGui.QIcon("URL imagen"))
+                mbox.setWindowTitle("Export Customers")
+                mbox.setText("Error while exporting customer data")
+                mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Ok)
+                mbox.exec()
+
+        except Exception as error:
+            print("There was an error while exporting the backup to csv file : ", error)
 
