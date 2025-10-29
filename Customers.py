@@ -100,6 +100,7 @@ class Customers:
                 uiTable.setItem(index, 3, QtWidgets.QTableWidgetItem(str(customer[7])))
                 uiTable.setItem(index, 4, QtWidgets.QTableWidgetItem(str(customer[8])))
                 uiTable.setItem(index, 5, QtWidgets.QTableWidgetItem(str(customer[9])))
+                uiTable.setItem(index, 6, QtWidgets.QTableWidgetItem(str(customer[10])))
 
                 uiTable.item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
                 uiTable.item(index, 1).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)

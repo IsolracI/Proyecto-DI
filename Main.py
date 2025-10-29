@@ -6,6 +6,7 @@ from Connection import *
 from Customers import *
 from Events import *
 import Globals
+import Styles
 import sys
 
 
@@ -19,6 +20,7 @@ class Main(QtWidgets.QMainWindow):
         Globals.vencal = Calendar()
         Globals.ui.about = About()
         Globals.dlgOpen = FileDialogOpen()
+        self.setStyleSheet(Styles.load_stylesheet())
 
         # load StyleSheet
 
