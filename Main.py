@@ -1,4 +1,3 @@
-import Events
 from window import Ui_MainWindow
 from AuxiliaryWindow import *
 from PyQt6 import QtWidgets
@@ -6,6 +5,7 @@ from Connection import *
 from Customers import *
 from Events import *
 import Globals
+import Events
 import Styles
 import sys
 

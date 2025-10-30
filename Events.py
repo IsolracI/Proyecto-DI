@@ -1,8 +1,6 @@
-import csv
-from mailbox import mbox
-
 from PyQt6 import QtWidgets, QtGui
 from datetime import datetime
+from mailbox import mbox
 from Connection import *
 from Customers import *
 import Globals
@@ -10,6 +8,7 @@ import zipfile
 import shutil
 import time
 import sys
+import csv
 import os
 
 class Events:

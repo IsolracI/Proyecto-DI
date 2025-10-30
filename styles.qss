@@ -15,6 +15,14 @@ QMainWindow {
         background-color: #FAFAFA;
     }
 
+    QLineEdit#txt_apellidosCliente {
+        background-color: red;
+        border: 1px solid #E0E0E0;
+        border-radius: 50px;
+        padding: 4px;
+        color: #212121;
+    }
+
     QPushButton {
         background-color: #1976D2;
         color: white;
@@ -35,8 +43,8 @@ QMainWindow {
     }
 
     QHeaderView::section {
-        background-color: #1976D2;
-        color: white;
+        background-color: #1976D2; /* color cabezera tabla */
+        color: white; /* color texto cabezera */
         font-weight: bold;
         padding: 4px;
         border: none;
